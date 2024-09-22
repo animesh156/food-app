@@ -1,17 +1,18 @@
 const FoodItem = require("../models/foodItemModel");
+const asyncHandler = require('express-async-handler')
 
 // get all food items from db
-const getAllMenu = async (req, res) => {
+const getAllMenu = asyncHandler(async (req, res) => {
   try {
     const foodItems = await FoodItem.find();
     res.json(foodItems);
   } catch (error) {
     res.status(500).json({ message: "Error fetching food items" });
   }
-};
+});
 
 // add food item to db
-const addMenu = async (req, res) => {
+const addMenu = asyncHandler(async (req, res) => {
   const { name, description, price, category, imageUrl } = req.body;
 
   if (!name || !price)
@@ -37,26 +38,24 @@ const addMenu = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Error adding food items" });
   }
-};
+});
 
 // get food item by category
-const getByCategory = async (req, res) => {
+const getByCategory = asyncHandler(async (req, res) => {
   try {
     const foodItems = await FoodItem.find({ category: req.params.category });
 
     if (foodItems.length === 0) {
-      res
-        .status(404)
-        .json({ message: "No food items found for this category" });
+      res.status(404).json({ message: "No food items found for this category" });
     }
 
     res.status(200).json(foodItems);
   } catch (error) {
     res.status(500).json({ message: "Error fetching food items" });
   }
-};
+});
 
-const deleteItemById = async (req, res) => {
+const deleteItemById = asyncHandler(async (req, res) => {
   const { id } = req.params;
   try {
     const deletedItem = await FoodItem.findById(id)
@@ -69,7 +68,7 @@ const deleteItemById = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Error deleting food items" });
   }
-};
+});
 
 module.exports = {
   getAllMenu,
