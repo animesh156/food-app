@@ -64,10 +64,14 @@ function Register() {
    
     
    
-    
+    <div className='login h-screen '>
 
-      <section className='form px-5 mt-20  m-auto bg-gray-50 border-2 border-red-500 dark:bg-zinc-950 md:max-w-sm py-12 shadow-md shadow-rose-400 rounded-2xl'>
-        <form onSubmit={onSubmit} className='' >
+   
+<div className='pt-10'>
+
+
+      <section className='form  px-5  m-auto bg-gray-50 border-2 border-red-500 dark:bg-zinc-950 md:max-w-sm py-12 shadow-md shadow-rose-400 rounded-2xl'>
+        <form onSubmit={onSubmit}  >
           <div className='form-group'>
             <input
               type='text'
@@ -111,7 +115,8 @@ function Register() {
           </div>
         </form>
       </section>
-
+      </div>
+      </div>
     
   )
 }

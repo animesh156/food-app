@@ -60,11 +60,14 @@ function Payment() {
 
   return (
     <>
-      <section className=" py-8 h-[42rem] bg-white text-black dark:bg-zinc-950  md:py-16">
-        <form  onSubmit={handleSubmit} className="mx-auto max-w-screen-xl px-4 2xl:px-0">
-          <div className=" sm:mt-8 lg:flex    lg:items-start lg:gap-12 xl:gap-16">
+    <div className="dark:bg-black 2xl:h-screen md:h-svh  lg:min-h-fit   bg-white">
 
-          <div className="mt-2 rounded-2xl dark:border-red-500 border-2 border-black p-6 mb-4 w-full space-y-6 sm:mt-8 lg:mt-0 lg:max-w-xs xl:max-w-md ">
+    
+     
+        <form  onSubmit={handleSubmit} className="mx-auto  max-w-screen-xl px-4 2xl:px-0">
+          <div className=" grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+
+          <div className="mt-10 rounded-2xl dark:border-red-500 border-2 border-black p-6 mb-4 w-full space-y-6 sm:mt-8 lg:mt-0 lg:max-w-xs xl:max-w-md ">
               <div className="flow-root">
                 <div className="-my-3 divide-y divide-yellow-400 dark:divide-gray-800">
                   <dl className="flex items-center justify-between gap-4 py-3">
@@ -103,7 +106,7 @@ function Payment() {
             
             </div>
 
-            <div className="min-w-0 flex-1 flex-col space-y-8 mt-12 md:-mt-8">
+            <div className="min-w-0 flex-1 flex-col space-y-8   -mt-2 ">
               <div className="space-y-4">
                 <h2 className="text-2xl text-center font-bold mb-2 dark:text-orange-500">
                   Delivery Details
@@ -158,10 +161,10 @@ function Payment() {
                   </div>
 
 
-                  <div className="m-auto">
+                  <div className="m-auto mb-4">
                     <button
                       type="submit"
-                      className="text-gray-900 font-bold bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400  rounded-3xl text-sm px-5 py-2.5 text-center me-2 mb-2">
+                      className="text-gray-900 font-bold mb-4 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400  rounded-3xl text-sm px-5 py-2.5 text-center me-2 ">
                     
                      
                      Pay ₹{totalAmount}
@@ -173,7 +176,8 @@ function Payment() {
            
           </div>
         </form>
-      </section>
+      
+      </div>
     </>
   );
 }

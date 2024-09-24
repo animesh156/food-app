@@ -57,8 +57,11 @@ function Login() {
   }
 
   return (
-    
-      <section className="form mt-28 m-auto  bg-slate-100 dark:bg-zinc-950 border-2 border-black shadow-md shadow-cyan-200 md:max-w-sm  px-5  py-12 rounded-3xl">
+    <div className="login h-screen">
+
+<div className='pt-5'>
+
+      <section className="form  mt-28 m-auto  bg-slate-100 dark:bg-zinc-950 border-2 border-black shadow-md shadow-cyan-200 md:max-w-sm  px-5  py-12 rounded-3xl">
         <form onSubmit={onSubmit}>
           <div className="form-group">
             <input
@@ -99,7 +102,8 @@ function Login() {
           
         </form>
       </section>
-   
+      </div>
+      </div>
   );
 }
 

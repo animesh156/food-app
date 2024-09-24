@@ -4,7 +4,7 @@ import axios from "axios";
 import Rating from "react-rating";
 import { FaStar } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
-import Footer from "./Footer";
+
 import { IoMdAdd } from "react-icons/io";
 import { FiMinus } from "react-icons/fi";
 
