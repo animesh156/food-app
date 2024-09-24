@@ -1,20 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import Banner from "../assets/homeBg.jpg";
+import { useSelector } from "react-redux";
 
- function Home() {
+
+import { useEffect } from "react";
+
+function Home() {
+  const { user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) navigate("/login");
+  }, []);
+
   return (
-    <div className="home" style={{ backgroundImage: `url(${Banner})` }}>
-      <div className="headerContainer text-center">
-        <h1>Food Website</h1>
-        <p>Delicious Foods </p>
-        <Link to="/menu">
-          <button>ORDER NOW</button>
-        </Link>
+    <>
+      <div className="flex flex-col flex-wrap justify-center bg-white dark:bg-zinc-950 dark:text-white h-[36rem]" >
+        <div className="headerContainer text-center font-bold  ">
+        <h1 className="lg:text-6xl md:text-3xl text-xl text-nowrap  mb-14 font-extrabold whitespace-nowrap dark:text-rose-500  ">Welcome to FoodieHub</h1>
+       
+        <p className="text-3xl text-nowrap mt-4 mb-4 dark:text-sky-500">
+           Feeling Hungry ?
+      </p>
+          <Link to="/menu">
+          <button type="button" className="text-white mt-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-3xl text-sm px-5 py-3 text-center me-2 mb-2">Order Now</button>
+          </Link>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
-
-export default Home
+export default Home;

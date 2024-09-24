@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Alert } from "@material-tailwind/react";
 import { IoAlertCircleOutline } from "react-icons/io5";
-
+import { IoMdClose } from "react-icons/io";
+import Footer from './Footer'
 import { TiTick } from "react-icons/ti";
+
 
 function Contact() {
   const [name, setName] = useState("");
@@ -17,7 +19,7 @@ function Contact() {
     console.log(name);
 
     if (!name) {
-      setAlertMessage("Error: Name is required!"); // Set error message
+      setAlertMessage("Your lovely name is required!"); // Set error message
       setAlertType("error"); // Set alert type to error
       setShowAlert(true);
 
@@ -42,45 +44,75 @@ function Contact() {
 
   return (
     <>
-      <div className="container ">
-
-      
-
-
-        <div className="text-center p-8  cnt">
-          <h1 className="text-5xl mb-12">Contact Us</h1>
-          <p>
+      <div className="  bg-white dark:bg-zinc-950 dark:text-white ">
+        <div className="text-center p-8 ">
+          <h1 className="text-5xl mb-12 dark:text-pink-500 font-bold">Contact Us</h1>
+          <p className="text-2xl font-semibold mb-4">
             We offer full-service catering for any event, large or small. We
             understand your needs and we will cater the food to satisfy the
             biggest criteria of them all, both look and taste. Do not hesitate
             to contact us.
           </p>
-          <p className="w3-text-blue-grey w3-large">
-            <b>Catering Service, 42nd Living St, 43043 New York, NY</b>
+          <p >
+            <b className="text-2xl font-extrabold mt-3 text-rose-500">Near Durga Temple, LaxmiSagar, Darbhanga</b>
           </p>
-          <p>
-            You can also contact us by phone <span>+91-999555544</span> or email{" "}
-            <span>DesiFood@.com</span>, or you can book a table by filling below
+          <p className="mt-3 text-2xl font-semibold">
+          We would love to hear from you! Whether you have a question, feedback, or need assistance, feel free to reach out to us. Our team is always ready to help.
+          </p>
+          <p className="mt-3 text-2xl font-semibold">
+            You can also contact us by phone <span className="text-red-500">+91-999555544</span> or email{" "}
+            <span className="text-sky-500">DesiFood@.com</span>, or you can book a table by filling below
             form:
           </p>
         </div>
 
+        {/* alertions */}
+
+     <div className="px-6">
+
         {ShowAlert && (
-           
           <Alert
-            icon={alertType === "error" ? <IoAlertCircleOutline size={22} /> : <TiTick size={22}/>}
-            className={`bg-${alertType === "error" ? "red" : "cyan"}-500 text-black w-96 m-auto`}
+            icon={
+              
+              alertType === "error" ? (
+                <IoAlertCircleOutline className="mr-3" size={22} />
+              ) : (
+                <TiTick className="mr-3" size={22} />
+              )
+            }
+          
+            className={`md:w-96 relative  w-auto m-auto py-2  text-black ${
+              alertType === "error" ? "bg-red-500" : "bg-cyan-300"
+            }`}
             severity={alertType}
+
+         action={
+          <button aria-label="close"
+         
+          className="ml-10 absolute right-2"
+          onClick={() => {
+           
+            setShowAlert(false);
+          }}>
+         <IoMdClose size={22} />
+          </button>
+         }
+
+            
           >
-            {alertMessage}
+            {alertMessage} 
           </Alert>
+
         )}
 
+</div>
+       
+
         <form
-          className="p-14 flex flex-col justify-center"
+          className="p-8 flex flex-col lg:max-w-md m-auto text-center"
           onSubmit={handleSubmit}
         >
-          <div className="flex flex-col">
+          <div className="flex flex-col ">
             <label htmlFor="name" className="hidden">
               Full Name
             </label>
@@ -91,7 +123,7 @@ function Contact() {
               value={name}
               placeholder="Full Name"
               onChange={(e) => setName(e.target.value)}
-              className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
+              className=" w-full dark:bg-black mb-6 rounded-2xl border-2 p-2.5 text-sm border-cyan-300 text-orange-500 "
             />
           </div>
 
@@ -106,7 +138,7 @@ function Contact() {
               placeholder="How Many People"
               min={0}
               max={30}
-              className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
+              className=" w-full dark:bg-black mb-6 rounded-2xl border-2 p-2.5 text-sm border-cyan-300 text-orange-500 "
             />
           </div>
 
@@ -119,7 +151,7 @@ function Contact() {
               name="date"
               id="date"
               placeholder="Date & Time"
-              className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
+              className=" w-full dark:bg-black mb-6 rounded-2xl border-2 p-2.5 text-sm border-cyan-300 text-orange-500 "
             />
           </div>
 
@@ -134,7 +166,7 @@ function Contact() {
               value={number}
               onChange={(e) => setNumber(e.target.value)}
               placeholder="Mobile Number"
-              className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
+             className=" w-full dark:bg-black mb-6 rounded-2xl border-2 p-2.5 text-sm border-cyan-300 text-orange-500 "
             />
           </div>
 
@@ -147,18 +179,22 @@ function Contact() {
               name="message"
               id="message"
               placeholder="Message/Special Requirement"
-              className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
+             className=" w-full dark:bg-black mb-6 rounded-2xl border-2 p-2.5 text-sm border-cyan-300 text-orange-500 "
             />
           </div>
-
-          <button
+ <div>
+ <button
             type="submit"
-            className="md:w-32 bg-orange-700 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-orange-600 transition ease-in-out duration-300"
+         className="text-white w-20  rounded-full bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium  text-sm px-5 py-2.5 text-center me-2 mb-2"
           >
             Book
           </button>
+ </div>
+          
         </form>
+        <Footer />
       </div>
+    
     </>
   );
 }

@@ -1,21 +1,39 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout, reset } from "../features/auth/authSlice";
+import { FaShoppingCart } from "react-icons/fa";
 
-import logo from "../assets/logo.svg";
 import { IoClose } from "react-icons/io5";
 import { BsList } from "react-icons/bs";
 
- function Header() {
+function Header() {
   const [click, setClick] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const onLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+    navigate("/login");
+  };
 
   const handleClick = () => setClick(!click);
+
   return (
     <>
       <nav className="navbar">
         <div className="nav-container">
-          <NavLink exact to="/" className="nav-logo">
-            <img src={logo} className="h-11" alt="Logo" />
-          </NavLink>
+         
+<div className='nav-logo'>
+<button  onClick={onLogout} className="text-red-600 font-bold" >
+               Logout
+            </button>
+
+            <button onClick={() => navigate('/order')} className="ml-5 text-cyan-400"><FaShoppingCart /></button>
+</div>
+
+
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
@@ -29,6 +47,7 @@ import { BsList } from "react-icons/bs";
                 Home
               </NavLink>
             </li>
+           
             <li className="nav-item">
               <NavLink
                 exact
@@ -80,4 +99,4 @@ import { BsList } from "react-icons/bs";
   );
 }
 
-export default Header
+export default Header;

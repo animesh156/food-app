@@ -79,15 +79,15 @@ const updateCart = asyncHandler(
 )
 
 
-const deleteCart = asyncHandler(
+const deleteCartItem = asyncHandler(
     async (req,res) => {
-    const {userId, foodItemId} = req.body;
-
+    const {userId, foodItemId} = req.params;
+ 
     try {
         let cart = await Cart.findOne({userId})
-
+           console.log(cart)
         if(cart){
-            cart.items = cart.items.filter(item => item.foodItem !== foodItemId)
+            cart.items = cart.items.filter((item) => item.foodItem.toString() !== foodItemId)
             await cart.save()
             res.status(200).json(cart)
         } else res.status(404).json({message: 'Cart not found'})
@@ -98,11 +98,25 @@ const deleteCart = asyncHandler(
     }
 )
 
+const deleteUserCart = asyncHandler(
+  async (req,res) => {
+    try {
+      const {userId} = req.params
+      await Cart.deleteMany({userId})
+      res.status(200).json({msg: "cart cleared successfully"})
+    } catch (error) {
+      console.log(error)
+      res.status(500).json({msg: "Error while fetching cart data"})
+    }
+  }
+)
+
 
 
 module.exports = {
     addCart,
     updateCart,
-    deleteCart,
-    getCart
+    deleteCartItem,
+    getCart,
+    deleteUserCart
 }
