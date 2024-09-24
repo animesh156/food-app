@@ -2,12 +2,14 @@
 import { useState } from "react";
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
+import { Alert } from "@material-tailwind/react";
 
 function Payment() {
   const [name,setName] = useState('')
   const [email,setEmail] = useState('')
   const [mobileNumber, setMobileNumber] = useState('')
   const [address,setAddress] = useState('')
+  const [showAlert,setShowAlert] = useState(false)
  
   const totalBill = localStorage.getItem('totalAmount')
 
@@ -40,7 +42,10 @@ function Payment() {
     setEmail('')
 
     try {
-      
+      setShowAlert(true)
+      setTimeout(() => {
+        setShowAlert(false);
+      }, 3000);
       await axios.delete(`https://food-app-backend-eight.vercel.app/cart/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`, // Send the token in the header
@@ -48,7 +53,7 @@ function Payment() {
       });
 
       localStorage.removeItem('totalAmount')
-      alert('your order is placed')
+      
       navigate('/')
   
     } catch (error) {
@@ -62,7 +67,12 @@ function Payment() {
     <>
     <div className="dark:bg-black 2xl:h-screen md:h-svh  lg:min-h-fit   bg-white">
 
-    
+    {showAlert && (
+      <div className="fixed top-0 left-0 w-full z-50">
+        <Alert className="text-black bg-green-400 lg:w-72 py-2 px-4 mt-1 m-auto text-center">
+          Order Placed
+        </Alert>
+      </div>)}
      
         <form  onSubmit={handleSubmit} className="mx-auto  max-w-screen-xl px-4 2xl:px-0">
           <div className=" grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
@@ -120,7 +130,7 @@ function Payment() {
                       onChange={(e) => setName(e.target.value)}
                       className=" w-full mb-6 dark:bg-black rounded-2xl border-2 p-2.5 text-sm border-cyan-300 text-orange-500 "
                       placeholder="your name"
-                      required=""
+                      required="true"
                     />
                   </div>
                   <div>
@@ -131,7 +141,7 @@ function Payment() {
                       onChange={(e) => setEmail(e.target.value)}
                       className=" w-full dark:bg-black mb-6 rounded-2xl border-2 p-2.5 text-sm border-cyan-300 text-orange-500 "
                       placeholder="your email"
-                      required=""
+                      required="true"
                     />
                   </div>
                     
@@ -143,7 +153,7 @@ function Payment() {
                       onChange={(e) => setMobileNumber(e.target.value)}
                        className=" w-full dark:bg-black mb-6 rounded-2xl border-2 p-2.5 text-sm border-cyan-300 text-orange-500 "
                       placeholder="your number"
-                      required=""
+                      required="true"
                     />
                   </div>
                   
@@ -156,7 +166,7 @@ function Payment() {
                      onChange={(e) => setAddress(e.target.value)}
                        className=" w-full dark:bg-black mb-6 rounded-2xl border-2 p-2.5 text-sm border-cyan-300 text-orange-500 "
                       placeholder="your address"
-                      required=""
+                      required="true"
                     />
                   </div>
 

@@ -151,7 +151,7 @@ function Order() {
                   onClick={() => handleUpdate(item._id)}
                   size={22}
                   color="blue"
-                  className="mr-1"
+                  className="mr-1 cursor-pointer"
                 >
                   Save
                 </FiSave>
@@ -161,12 +161,13 @@ function Order() {
                   onClick={() => handleEdit(index)}
                   size={22}
                   color="green"
-                  className="mr-1"
+                  className="mr-1 cursor-pointer"
                 />
               )}
               <MdDelete
                 size={22}
                 color="red"
+                className="cursor-pointer"
                 onClick={() => handleDelete(item.foodItem._id)}
               />
             </div>

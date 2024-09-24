@@ -121,6 +121,7 @@ function Contact() {
               name="name"
               id="name"
               value={name}
+              required="true"
               placeholder="Full Name"
               onChange={(e) => setName(e.target.value)}
               className=" w-full dark:bg-black mb-6 rounded-2xl border-2 p-2.5 text-sm border-cyan-300 text-orange-500 "
@@ -135,6 +136,7 @@ function Contact() {
               type="number"
               name="number"
               id="number"
+              required="true"
               placeholder="How Many People"
               min={0}
               max={30}
@@ -150,6 +152,7 @@ function Contact() {
               type="datetime-local"
               name="date"
               id="date"
+              required="true"
               placeholder="Date & Time"
               className=" w-full dark:bg-black mb-6 rounded-2xl border-2 p-2.5 text-sm border-cyan-300 text-orange-500 "
             />
@@ -163,6 +166,7 @@ function Contact() {
               type="tel"
               name="tel"
               id="tel"
+              required="true"
               value={number}
               onChange={(e) => setNumber(e.target.value)}
               placeholder="Mobile Number"
@@ -178,6 +182,7 @@ function Contact() {
               type="text"
               name="message"
               id="message"
+              
               placeholder="Message/Special Requirement"
              className=" w-full dark:bg-black mb-6 rounded-2xl border-2 p-2.5 text-sm border-cyan-300 text-orange-500 "
             />

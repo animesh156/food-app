@@ -4,15 +4,18 @@ import axios from "axios";
 import Rating from "react-rating";
 import { FaStar } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
+import { Alert } from "@material-tailwind/react";
 
 import { IoMdAdd } from "react-icons/io";
 import { FiMinus } from "react-icons/fi";
+
 
 function Menu() {
   const [foodItems, setFoodItems] = useState([]);
   const [query, setQuery] = useState("veg");
   const [loading, setLoading] = useState(true);
   const [quantities, setQuantities] = useState({});
+  const [showAlert,setShowAlert] = useState(false)
 
   const increment = (itemId) => {
     setQuantities((prevQuantities) => ({
@@ -45,6 +48,10 @@ function Menu() {
   const handleAddCart = async (item) => {
     const quantity = quantities[item._id] || 1;
     try {
+      setShowAlert(true)
+      setTimeout(() => {
+        setShowAlert(false);
+      }, 2000);
       await axios.post(
         "https://food-app-backend-eight.vercel.app/cart",
         {
@@ -59,7 +66,7 @@ function Menu() {
         }
       );
       setQuantities({});
-      window.alert("item added");
+    
     } catch (error) {
       console.log(error);
 
@@ -91,6 +98,17 @@ function Menu() {
   if (loading) return <Spinner />;
 
   return (
+
+    <div className="relative">
+    
+    {showAlert && (
+      <div className="fixed top-0 left-0 w-full z-50">
+        <Alert className="text-black bg-cyan-400 lg:w-72 py-2 px-4 mt-1 m-auto text-center">
+          Item was added
+        </Alert>
+      </div>
+    )}
+
     <div className="bg-white 2xl:h-screen md:h-svh lg:min-h-fit  dark:bg-zinc-950  dark:text-white ">
       <ul className="text-2xl   font-medium flex flex-row justify-evenly items-center cursor-pointer ">
         <li
@@ -119,7 +137,12 @@ function Menu() {
         </li>
       </ul>
 
+     
+
       <div className="grid grid-cols-2 px-1  w-auto  md:grid-cols-3    mt-5 auto-cols-auto">
+
+     
+
         {foodItems.map((item, index) => (
           <div
             key={index}
@@ -139,6 +162,8 @@ function Menu() {
                   {item.name}
                 </h5>
               </a>
+
+              
 
               <div className="flex justify-center mb-3">
                 <Rating
@@ -184,6 +209,8 @@ function Menu() {
       </div>
      
     </div>
+    </div>
+    
   );
 }
 export default Menu;
