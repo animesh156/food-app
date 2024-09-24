@@ -75,7 +75,7 @@ function Register() {
           <div className='form-group'>
             <input
               type='text'
-              className='form-control dark:bg-black dark:text-white rounded-3xl dark:caret-white mb-8'
+              className='form-control dark:bg-black  border-cyan-400 border-2  dark:text-orange-500 rounded-3xl dark:caret-white mb-8'
               id='name'
               name='name'
               value={name}
@@ -86,7 +86,7 @@ function Register() {
           <div className='form-group'>
             <input
               type='email'
-              className='form-control dark:bg-black dark:text-white rounded-3xl dark:caret-white mb-8'
+              className='form-control dark:bg-black border-cyan-400 border-2 rounded-3xl dark:text-orange-500 dark:caret-white mb-8'
               id='email'
               name='email'
               value={email}
@@ -97,7 +97,7 @@ function Register() {
           <div className='form-group'>
             <input
               type='password'
-              className='form-control dark:bg-black dark:text-white rounded-3xl dark:caret-white mb-8'
+              className='form-control dark:bg-black border-cyan-400 border-2 rounded-3xl dark:text-orange-500 dark:caret-white mb-8'
               id='password'
               name='password'
               value={password}

@@ -61,12 +61,12 @@ function Login() {
 
 <div className='pt-5'>
 
-      <section className="form  mt-28 m-auto  bg-slate-100 dark:bg-zinc-950 border-2 border-black shadow-md shadow-cyan-200 md:max-w-sm  px-5  py-12 rounded-3xl">
+      <section className="form  mt-28 m-auto  bg-slate-100 dark:bg-zinc-950 border-2 border-black dark:border-red-500 shadow-md shadow-cyan-200 md:max-w-sm  px-5  py-12 rounded-3xl">
         <form onSubmit={onSubmit}>
           <div className="form-group">
             <input
               type="email"
-              className="form-control dark:bg-black rounded-3xl dark:text-white dark:caret-white mb-8"
+              className="form-control dark:bg-black border-cyan-400 border-2 rounded-3xl dark:text-orange-500  dark:caret-white mb-8"
               id="email"
               name="email"
               value={email}
@@ -77,7 +77,7 @@ function Login() {
           <div className="form-group">
             <input
               type="password"
-              className="form-control dark:bg-black rounded-3xl dark:text-white dark:caret-white mb-8"
+              className="form-control dark:bg-black border-cyan-400 border-2 dark:text-orange-500 rounded-3xl  dark:caret-white mb-8"
               id="password"
               name="password"
               value={password}
