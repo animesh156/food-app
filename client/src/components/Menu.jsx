@@ -46,7 +46,7 @@ function Menu() {
     const quantity = quantities[item._id] || 1;
     try {
       await axios.post(
-        "http://localhost:5000/cart",
+        "https://food-app-backend-eight.vercel.app/cart",
         {
           quantity: quantity,
           userId: userId,
@@ -71,7 +71,7 @@ function Menu() {
     setLoading(true);
     const fetchFoodData = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/menu/${query}`, {
+        const res = await axios.get(`https://food-app-backend-eight.vercel.app/menu/${query}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -123,7 +123,7 @@ function Menu() {
         {foodItems.map((item, index) => (
           <div
             key={index}
-            className="flex px-1 justify-center flex-wrap flex-col w-auto px-2 m-auto text-wrap text-center transition hover:shadow-lg mb-12 mt-5 bg-white border lg:w-72 border-gray-200 rounded-lg shadow  dark:bg-black dark:border-cyan-400 dark:hover:shadow-cyan-400"
+            className="flex px-1 justify-center flex-wrap flex-col w-auto  m-auto text-wrap text-center transition hover:shadow-lg mb-12 mt-5 bg-white border lg:w-72 border-gray-200 rounded-lg shadow  dark:bg-black dark:border-cyan-400 dark:hover:shadow-cyan-400"
           >
             <div className="flex m-auto justify-center mt-4">
               <img

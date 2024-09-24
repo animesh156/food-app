@@ -33,7 +33,7 @@ function Order() {
     const fetchCartItems = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`http://localhost:5000/cart/${userId}`, {
+        const res = await axios.get(`https://food-app-backend-eight.vercel.app/cart/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -58,7 +58,7 @@ function Order() {
     try {
       // Send the updated quantity to the backend
       await axios.put(
-        `http://localhost:5000/cart`,
+        `https://food-app-backend-eight.vercel.app/cart`,
         {
           quantity: updatedQuantity,
           foodItemId: itemId,
@@ -88,7 +88,7 @@ function Order() {
       prevItems.filter((item) => item.foodItem._id !== foodItemId)
     );
     try {
-      await axios.delete(`http://localhost:5000/cart/${userId}/${foodItemId}`, {
+      await axios.delete(`https://food-app-backend-eight.vercel.app/cart/${userId}/${foodItemId}`, {
         headers: {
           Authorization: `Bearer ${token}`, // Correctly set the token in headers
         },

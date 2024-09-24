@@ -41,7 +41,7 @@ function Payment() {
 
     try {
       
-      await axios.delete(`http://localhost:5000/cart/${userId}`, {
+      await axios.delete(`https://food-app-backend-eight.vercel.app/cart/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`, // Send the token in the header
         },

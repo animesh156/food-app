@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-const registerRoute = "http://localhost:5000/user/register"
+const registerRoute = "https://food-app-backend-eight.vercel.app/user/register"
 
-const loginRoute = "http://localhost:5000/user/login"
+const loginRoute = "https://food-app-backend-eight.vercel.app/user/login"
 
 const register = async (userData) => {
     const response = await axios.post(registerRoute, userData)
