@@ -91,7 +91,7 @@ function Menu() {
   if (loading) return <Spinner />;
 
   return (
-    <div className="bg-white h-screen dark:bg-zinc-950 dark:text-white ">
+    <div className="bg-white 2xl:h-screen md:h-svh lg:min-h-fit  dark:bg-zinc-950  dark:text-white ">
       <ul className="text-2xl   font-medium flex flex-row justify-evenly items-center cursor-pointer ">
         <li
           className="border-b-2 border-red-700 hover:font-bold mt-3"
@@ -119,7 +119,7 @@ function Menu() {
         </li>
       </ul>
 
-      <div className="grid grid-cols-2 px-1  w-auto  md:grid-cols-3   mt-5 auto-cols-auto">
+      <div className="grid grid-cols-2 px-1  w-auto  md:grid-cols-3    mt-5 auto-cols-auto">
         {foodItems.map((item, index) => (
           <div
             key={index}
@@ -182,7 +182,7 @@ function Menu() {
           </div>
         ))}
       </div>
-      <Footer />
+     
     </div>
   );
 }

@@ -15,7 +15,7 @@ function Home() {
 
   return (
     <>
-      <div className="flex flex-col flex-wrap justify-center bg-white dark:bg-zinc-950 dark:text-white h-[36rem]" >
+      <div className="flex flex-col flex-wrap justify-center bg-white dark:bg-zinc-950 dark:text-white h-screen" >
         <div className="headerContainer text-center font-bold  ">
         <h1 className="lg:text-6xl md:text-3xl text-xl text-nowrap  mb-14 font-extrabold whitespace-nowrap dark:text-rose-500  ">Welcome to FoodieHub</h1>
        
