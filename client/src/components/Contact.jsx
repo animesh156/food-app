@@ -60,9 +60,8 @@ function Contact() {
           We would love to hear from you! Whether you have a question, feedback, or need assistance, feel free to reach out to us. Our team is always ready to help.
           </p>
           <p className="mt-3 text-2xl font-semibold">
-            You can also contact us by phone <span className="text-red-500">+91-999555544</span> or email{" "}
-            <span className="text-sky-500">DesiFood@.com</span>, or you can book a table by filling below
-            form:
+            You can also contact us by phone <span className="text-red-500 cursor-pointer">+91-999555544</span> or email{" "}
+            <span className="text-sky-500 cursor-pointer">FoodieHub@91</span>
           </p>
         </div>
 
@@ -106,7 +105,7 @@ function Contact() {
         )}
 
 </div>
-       
+        <h3 className="text-center text-3xl font-black mt-2">Book a Table</h3>
 
         <form
           className="p-8 flex flex-col lg:max-w-md m-auto text-center"

@@ -1,17 +1,23 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 
 
-import { useEffect } from "react";
+
 
 function Home() {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!user) navigate("/login");
-  }, []);
+  const handleClick = () => {
+        if(user) navigate('/menu')
+          else navigate('/login')
+       
+  }
+
+  // useEffect(() => {
+  //   if (!user) navigate("/login");
+  // }, []);
 
   return (
     <>
@@ -22,9 +28,9 @@ function Home() {
         <p className="text-3xl text-nowrap mt-4 mb-4 dark:text-sky-500">
            Feeling Hungry ?
       </p>
-          <Link to="/menu">
-          <button type="button" className="text-white mt-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-3xl text-sm px-5 py-3 text-center me-2 mb-2">Order Now</button>
-          </Link>
+         {user ?  <button type="button" className="text-white mt-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-3xl text-sm px-5 py-3 text-center me-2 mb-2" onClick={handleClick}>Order Now</button> :  <button type="button" className="text-white mt-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-3xl text-sm px-5 py-3 text-center me-2 mb-2" onClick={handleClick}>Login</button>}
+         
+         
         </div>
       </div>
     </>

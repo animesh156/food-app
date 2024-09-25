@@ -67,43 +67,48 @@ function Register() {
     <div className='login h-screen '>
 
    
-<div className='pt-10'>
+<div className='xl:w-96 md:w-80 max-w-sm py-10 px-2 m-auto'>
 
 
-      <section className='form  px-5  m-auto bg-gray-50 border-2 border-red-500 dark:bg-zinc-950 md:max-w-sm py-12 shadow-md shadow-rose-400 rounded-2xl'>
-        <form onSubmit={onSubmit}  >
-          <div className='form-group'>
+      <section className='form  px-5 flex justify-center m-auto  bg-gray-50 border-2 border-red-500 dark:bg-zinc-950  py-12 shadow-md shadow-rose-400 rounded-2xl'>
+        <form onSubmit={onSubmit}   >
+          <div className='flex justify-center flex-col m-auto px-3'>
+
+        
+         
             <input
               type='text'
-              className='form-control dark:bg-black  border-cyan-400 border-2  dark:text-orange-500 rounded-3xl dark:caret-white mb-8'
+              className='lg:w-72 dark:bg-black py-1.5 px-5 border-cyan-400 border-2  dark:text-orange-500 rounded-3xl dark:caret-white mb-8'
               id='name'
               name='name'
               value={name}
               placeholder='Enter your name'
               onChange={onChange}
             />
-          </div>
-          <div className='form-group'>
+        
+         
             <input
               type='email'
-              className='form-control dark:bg-black border-cyan-400 border-2 rounded-3xl dark:text-orange-500 dark:caret-white mb-8'
+              className=' dark:bg-black py-1.5 px-5 border-cyan-400 border-2 rounded-3xl dark:text-orange-500 dark:caret-white mb-8'
               id='email'
               name='email'
               value={email}
               placeholder='Enter your email'
               onChange={onChange}
             />
-          </div>
-          <div className='form-group'>
+        
+         
             <input
               type='password'
-              className='form-control dark:bg-black border-cyan-400 border-2 rounded-3xl dark:text-orange-500 dark:caret-white mb-8'
+              className='lg:w-72 dark:bg-black py-1.5 px-5 border-cyan-400 border-2 rounded-3xl dark:text-orange-500 dark:caret-white mb-8'
               id='password'
               name='password'
               value={password}
               placeholder='Enter password'
               onChange={onChange}
             />
+        
+
           </div>
          
           <div className='form-group mt-4 text-center'>

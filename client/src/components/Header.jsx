@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
 import { FaShoppingCart } from "react-icons/fa";
 
@@ -12,6 +12,10 @@ function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const { user} = useSelector(
+    (state) => state.auth
+  );
+
   const onLogout = () => {
     dispatch(logout());
     dispatch(reset());
@@ -22,21 +26,29 @@ function Header() {
 
   return (
     <>
-      <nav className="navbar">
+      <nav className="navbar bg-white text-black dark:bg-black ">
         <div className="nav-container">
-         
-<div className='nav-logo'>
+
+          {user ? <div className='nav-logo'>
 <button  onClick={onLogout} className="text-red-600 font-bold" >
                Logout
             </button>
 
             <button onClick={() => navigate('/order')} className="ml-5 text-cyan-400"><FaShoppingCart /></button>
-</div>
+</div> : <div className='nav-logo '>
+<button  onClick={onLogout} className="text-red-600 font-bold hidden" >
+               Logout
+            </button>
+
+            <button onClick={() => navigate('/order')} className="ml-5 text-cyan-400 hidden"><FaShoppingCart /></button>
+</div> }
+         
 
 
 
-          <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <li className="nav-item">
+
+<ul className={`${click ? "nav-menu active" : "nav-menu"} bg-slate-100 dark:bg-black dark:text-yellow-300`}>
+            <li className="nav-item ">
               <NavLink
                 exact
                 to="/"
@@ -59,7 +71,8 @@ function Header() {
                 About
               </NavLink>
             </li>
-            <li className="nav-item">
+            {user ? <li className="nav-item">
+              
               <NavLink
                 exact
                 to="/menu"
@@ -69,7 +82,19 @@ function Header() {
               >
                 Menu
               </NavLink>
-            </li>
+            </li> : <li className="nav-item hidden">
+              
+              <NavLink
+                exact
+                to="/menu"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Menu
+              </NavLink>
+            </li> }
+            
             <li className="nav-item">
               <NavLink
                 exact
