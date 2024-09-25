@@ -60,8 +60,8 @@ function Login() {
     <div className="login h-screen">
 
 <div className='pt-5'>
-<h1 className='text-3xl text-wrap text-black dark:text-cyan-400'>Login to order delicious food</h1>
-      <section className="form  mt-28 m-auto  bg-slate-100 dark:bg-zinc-950 border-2 border-black dark:border-red-500 shadow-md shadow-cyan-200 md:max-w-sm  px-5  py-12 rounded-3xl">
+<h1 className='text-3xl text-wrap  dark:text-cyan-400'>Login to order delicious food</h1>
+      <section className="form  mt-16 m-auto  bg-slate-100 dark:bg-zinc-950 border-2 border-black dark:border-red-500 shadow-md shadow-cyan-200 md:max-w-sm  px-5  py-12 rounded-3xl">
         <form onSubmit={onSubmit}>
           <div className="form-group">
             <input
