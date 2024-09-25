@@ -26,7 +26,7 @@ function Header() {
 
   return (
     <>
-      <nav className="navbar bg-white text-black dark:bg-black ">
+      <nav className="navbar bg-zinc-100 text-black dark:bg-black ">
         <div className="nav-container">
 
           {user ? <div className='nav-logo'>
@@ -47,7 +47,7 @@ function Header() {
 
 
 
-<ul className={`${click ? "nav-menu active" : "nav-menu"} bg-slate-100 dark:bg-black dark:text-yellow-300`}>
+<ul className={`${click ? "nav-menu active bg-zinc-50" : "nav-menu"}  dark:bg-black dark:text-yellow-300`}>
             <li className="nav-item ">
               <NavLink
                 exact
