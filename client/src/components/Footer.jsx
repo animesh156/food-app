@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
+import { IoMdRestaurant } from "react-icons/io";
 
-import logo from "../assets/logo.svg"
 
 
  function Footer() {
@@ -13,11 +13,7 @@ import logo from "../assets/logo.svg"
 
                     <div className="mb-6 md:mb-0">
                         <Link to="/" >
-                            <img
-                                src={logo}
-                                className="h-24"
-                                alt="Logo"
-                            />
+                            <IoMdRestaurant size={54} />
                         </Link>
                     </div>
 

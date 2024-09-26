@@ -3,7 +3,7 @@ import Footer from './Footer'
 
 function About() {
   return (
-   
+   <>
   <div className="bg-white dark:text-white dark:bg-zinc-950 p-4 text-center">
 
   
@@ -41,9 +41,12 @@ function About() {
 
 
   </div>
-  <Footer />
+
 
    </div>
+
+<Footer />
+</>
   
 
  
