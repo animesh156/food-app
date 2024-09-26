@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
 import { FaShoppingCart } from "react-icons/fa";
+import { IoMdRestaurant } from "react-icons/io";
 
 import { IoClose } from "react-icons/io5";
 import { BsList } from "react-icons/bs";
@@ -34,13 +35,15 @@ function Header() {
                Logout
             </button>
 
-            <button onClick={() => navigate('/order')} className="ml-5 text-cyan-400"><FaShoppingCart /></button>
+            <button onClick={() => navigate('/order')} className="ml-5 text-cyan-400"><FaShoppingCart size={20}/></button>
+            <button onClick={() => navigate('/')} className="ml-5 text-yellow-300"><IoMdRestaurant size={24}/></button>
 </div> : <div className='nav-logo '>
 <button  onClick={onLogout} className="text-red-600 font-bold hidden" >
                Logout
             </button>
 
             <button onClick={() => navigate('/order')} className="ml-5 text-cyan-400 hidden"><FaShoppingCart /></button>
+            <button onClick={() => navigate('/')} className="ml-5 text-yellow-300"><IoMdRestaurant size={24} /></button>
 </div> }
          
 
@@ -110,11 +113,11 @@ function Header() {
           <div className="nav-icon" onClick={handleClick}>
             {click ? (
               <span className="icon">
-                <IoClose size={20} />
+                <IoClose size={24} />
               </span>
             ) : (
               <span className="icon">
-                <BsList size={20} />
+                <BsList size={24} />
               </span>
             )}
           </div>

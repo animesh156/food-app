@@ -46,7 +46,7 @@ function Contact() {
     <>
       <div className="  bg-white dark:bg-zinc-950 dark:text-white ">
         <div className="text-center p-8 ">
-          <h1 className="text-5xl mb-12 dark:text-pink-500 font-bold">Contact Us</h1>
+          <h1 className="text-5xl  mb-12 dark:text-pink-500 font-bold">Contact Us</h1>
           <p className="text-2xl font-semibold mb-4">
             We offer full-service catering for any event, large or small. We
             understand your needs and we will cater the food to satisfy the
@@ -54,7 +54,7 @@ function Contact() {
             to contact us.
           </p>
           <p >
-            <b className="text-2xl font-extrabold mt-3 text-rose-500">Near Durga Temple, LaxmiSagar, Darbhanga</b>
+            <b className="text-2xl font-extrabold mt-3 text-rose-500">Near Big Bazar, IT Chowk, Darbhanga</b>
           </p>
           <p className="mt-3 text-2xl font-semibold">
           We would love to hear from you! Whether you have a question, feedback, or need assistance, feel free to reach out to us. Our team is always ready to help.
