@@ -144,17 +144,9 @@ function Contact() {
           </div>
 
           <div className="flex flex-col mt-2">
-            <label htmlFor="date" className="hidden">
-              Date
-            </label>
-            <input
-              type="datetime-local"
-              name="date"
-              id="date"
-              required="true"
-              placeholder="Date & Time"
-              className=" w-full dark:bg-black mb-6 rounded-2xl border-2 p-2.5 text-sm border-cyan-300 text-orange-500 "
-            />
+            
+           
+          <input type="date" id="date" name="date" className="w-full dark:bg-slate-700 mb-6 rounded-2xl border-2 p-2.5 text-sm border-cyan-300 text-orange-500"/>
           </div>
 
           <div className="flex flex-col mt-2">
