@@ -7,12 +7,20 @@ const loginRoute = "https://food-app-backend-eight.vercel.app/user/login"
 const register = async (userData) => {
     const response = await axios.post(registerRoute, userData)
 
+    if (response.data) {
+        localStorage.setItem('user', JSON.stringify(response.data))
+      }
+
     return response.data
 }
 
 
 const login = async (userData) => {
     const response = await axios.post(loginRoute,userData)
+
+    if (response.data) {
+        localStorage.setItem('user', JSON.stringify(response.data))
+      }
 
     return response.data
 
@@ -21,7 +29,7 @@ const login = async (userData) => {
 
 
 const logout = () => {
-    return {};
+    localStorage.removeItem('user')
 }
 
 

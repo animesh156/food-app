@@ -27,9 +27,11 @@ function Login() {
       toast.error(message);
     }
 
-    if (isSuccess || user) {
+    if ( user) {
       navigate("/menu");
     }
+
+    console.log(user)
 
     dispatch(reset());
   }, [user, isError, isSuccess, message, navigate, dispatch]);
@@ -55,6 +57,8 @@ function Login() {
   if (isLoading) {
     return <Spinner />;
   }
+
+  
 
   return (
     <div className="login h-screen">

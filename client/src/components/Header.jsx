@@ -3,7 +3,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
 import { FaShoppingCart } from "react-icons/fa";
-
 import { IoClose } from "react-icons/io5";
 import { BsList } from "react-icons/bs";
 
@@ -14,7 +13,7 @@ function Header() {
 
   const { user } = useSelector((state) => state.auth);
 
-  const onLogout = async() => {
+  const onLogout = async () => {
     await dispatch(logout());
     dispatch(reset());
     navigate("/login");
@@ -22,23 +21,33 @@ function Header() {
 
   const handleClick = () => setClick(!click);
 
-  if (!user) return null;  // Don't render navbar if user is not logged in
+  // Conditionally render navbar content based on user authentication
+  if (!user) return <></>;  // Don't render navbar if user is not logged in
 
   return (
-    <nav className="navbar bg-zinc-100 text-black dark:bg-black ">
+    <nav className="navbar bg-zinc-100 text-black dark:bg-black">
       <div className="nav-container">
         <div className="nav-logo">
-          <button onClick={onLogout} className="text-red-600 hover:text-orange-500 font-bold">
+          <button
+            onClick={onLogout}
+            className="text-red-600 hover:text-orange-500 font-bold"
+          >
             Logout
           </button>
 
-          <button onClick={() => navigate('/order')} className="ml-5 text-cyan-400 hover:text-red-500">
+          <button
+            onClick={() => navigate("/order")}
+            className="ml-5 text-cyan-400 hover:text-red-500"
+          >
             <FaShoppingCart size={20} />
           </button>
-        
         </div>
 
-        <ul className={`${click ? "nav-menu active bg-zinc-50" : "nav-menu"}  dark:bg-black dark:text-yellow-300`}>
+        <ul
+          className={`${
+            click ? "nav-menu active bg-zinc-50" : "nav-menu"
+          } dark:bg-black dark:text-yellow-300`}
+        >
           <li className="nav-item">
             <NavLink
               exact
