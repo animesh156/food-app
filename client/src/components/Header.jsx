@@ -48,17 +48,7 @@ function Header() {
             click ? "nav-menu active bg-zinc-50" : "nav-menu"
           } dark:bg-black dark:text-yellow-300`}
         >
-          <li className="nav-item">
-            <NavLink
-              exact
-              to="/about"
-              activeClassName="active"
-              className="nav-links"
-              onClick={handleClick}
-            >
-              About
-            </NavLink>
-          </li>
+          
           <li className="nav-item">
             <NavLink
               exact

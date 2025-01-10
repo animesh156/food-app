@@ -28,11 +28,7 @@ import { IoMdRestaurant } from "react-icons/io";
                                         Home
                                     </Link>
                                 </li>
-                                <li>
-                                    <Link to="/about"  className={(pathname === '/about') ? 'active' : 'notActive'}  >
-                                        About
-                                    </Link>
-                                </li>
+                               
                             </ul>
                         </div>
                        

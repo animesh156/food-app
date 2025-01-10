@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
-import About from "./components/About";
+
 import Contact from "./components/Contact";
 import Menu from "./components/Menu";
 import Home from "./components/Home";
@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="order" element={<Order />} />
-          <Route path="about" element={<About />} />
+          
           <Route path="contact" element={<Contact />} />
           <Route path="menu" element={<Menu />} />
           <Route path="payment" element={<Payment />} />
