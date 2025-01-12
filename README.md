@@ -10,7 +10,9 @@
 <li>Add to Cart: Add food items to the cart for checkout.</li>
 <li>Responsive Design: Works seamlessly on desktop and mobile devices.</li>
 
-![Screenshot (70)](https://github.com/user-attachments/assets/e51b9e63-1828-4f9c-9f6c-8c2e1db0aef2)
+
+
+![Screenshot (85)](https://github.com/user-attachments/assets/16b8f9f8-30f1-4e13-9871-82d9de7bbe3e)
 ![Screenshot (83)](https://github.com/user-attachments/assets/5694efb5-d1eb-4fec-bca7-4beb6b9d0f9a)
 ![Screenshot (87)](https://github.com/user-attachments/assets/7081392f-c1df-4091-a39e-74f117586466)
 ![Screenshot (86)](https://github.com/user-attachments/assets/9e479163-4dc0-49f1-9298-1bdfdc359c74)
